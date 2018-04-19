@@ -1,0 +1,41 @@
+server:
+  port: 8887
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    stream:
+      kafka:
+        binder:
+          zk-nodes: localhost:2181
+          brokers: localhost:9092
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/wenweihu86/spring-cloud-config-repo
+          searchPaths: example
+          force-pull: true
+
+eureka:
+  instance:
+    # 使用IP注册
+    prefer-ip-address: true
+    # 心跳间隔
+    lease-renewal-interval-in-seconds: 3
+    # 服务失效时间： 如果多久没有收到请求，则可以删除服务
+    lease-expiration-duration-in-seconds: 3
+  client:
+    # 不注册自身到eureka服务器
+    register-with-eureka: true
+    # 表示是否从eureka服务器获取注册信息
+    fetch-registry: true
+    # 客户端从Eureka Server集群里更新Eureka Server信息的频率
+    eureka-service-url-poll-interval-seconds: 60
+    service-url:
+      defaultZone: http://eureka-peer1:8889/eureka/,http://eureka-peer2:8890/eureka/
+
+management:
+  security:
+    enabled: false

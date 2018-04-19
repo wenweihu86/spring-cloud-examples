@@ -1,0 +1,32 @@
+server:
+  port: 8889
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: eureka-peer1
+#    # 心跳间隔
+#    lease-renewal-interval-in-seconds: 3
+#    # 服务失效时间： 如果多久没有收到请求，则可以删除服务
+#    lease-expiration-duration-in-seconds: 3
+  client:
+    # 不注册自身到eureka服务器
+    register-with-eureka: true
+    # 表示是否从eureka服务器获取注册信息
+    fetch-registry: true
+    # 客户端从Eureka Server集群里更新Eureka Server信息的频率
+#    eureka-service-url-poll-interval-seconds: 60
+    service-url:
+      defaultZone: http://eureka-peer2:8890/eureka/
+#  server:
+#    # 关闭自我保护模式
+#    enable-self-preservation: false
+#    # 设置清理间隔,单位为毫秒,默认为0
+#    eviction-interval-timer-in-ms: 3000
+#    # 设置如果Eureka Server启动时无法从临近Eureka Server节点获取注册信息，它多久不对外提供注册服务
+#    wait-time-in-ms-when-sync-empty: 60000
+#    # 集群之间相互更新节点信息的时间频率
+#    peer-eureka-nodes-update-interval-ms: 5000
