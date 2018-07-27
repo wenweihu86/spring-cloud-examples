@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.wenweihu86</groupId>
-    <artifactId>spring-cloud-config-cluster</artifactId>
+    <artifactId>spring-cloud-examples</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -10,8 +10,8 @@
     <description>spring cloud config cluster</description>
 
     <modules>
-        <module>eureka-server</module>
-        <module>config-server</module>
         <module>config-client</module>
+        <module>config-server</module>
+        <module>eureka-server</module>
     </modules>
 </project>

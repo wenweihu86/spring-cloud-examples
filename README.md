@@ -1,2 +1,2 @@
-# spring-cloud-config-cluster
-spring cloud高可用集群，包括配置动态更新
+# spring-cloud-examples
+spring cloud高可用集群示例，包括注册中心、配置中心

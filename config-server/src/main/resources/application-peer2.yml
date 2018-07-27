@@ -20,8 +20,6 @@ spring:
 
 eureka:
   instance:
-    # 使用IP注册
-    prefer-ip-address: true
     # 心跳间隔
     lease-renewal-interval-in-seconds: 3
     # 服务失效时间： 如果多久没有收到请求，则可以删除服务
@@ -33,8 +31,10 @@ eureka:
     fetch-registry: true
     # 客户端从Eureka Server集群里更新Eureka Server信息的频率
     eureka-service-url-poll-interval-seconds: 60
+    healthcheck:
+      enabled: true
     service-url:
-      defaultZone: http://eureka-peer1:8889/eureka/,http://eureka-peer2:8890/eureka/
+      defaultZone: http://127.0.0.1:8889/eureka/,http://127.0.0.1:8890/eureka/
 
 management:
   security:
