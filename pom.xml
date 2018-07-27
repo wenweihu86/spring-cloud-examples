@@ -3,15 +3,16 @@
 
     <groupId>com.github.wenweihu86</groupId>
     <artifactId>spring-cloud-examples</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>spring cloud config cluster</name>
     <description>spring cloud config cluster</description>
 
     <modules>
-        <module>config-client</module>
-        <module>config-server</module>
         <module>eureka-server</module>
+        <module>config-server</module>
+        <module>gateway</module>
+        <module>order-server</module>
     </modules>
 </project>

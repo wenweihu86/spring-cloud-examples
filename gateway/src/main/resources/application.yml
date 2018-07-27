@@ -1,22 +1,5 @@
 server:
-  port: 8887
-
-spring:
-  application:
-    name: config-server
-  cloud:
-    stream:
-      kafka:
-        binder:
-          zk-nodes: localhost:2181
-          brokers: localhost:9092
-    config:
-      label: master
-      server:
-        git:
-          uri: https://github.com/wenweihu86/spring-cloud-config-repo
-#          searchPaths: example
-          force-pull: true
+  port: 8085
 
 eureka:
   instance:
@@ -36,6 +19,15 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:8889/eureka/,http://127.0.0.1:8890/eureka/
 
-management:
-  security:
-    enabled: false
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: order
+        uri: lb://order-server
+        predicates:
+        - Path=/data/order/**
+        filters:
+        - RewritePath=/data/(?<segment>.*), /$\{segment}

@@ -15,7 +15,7 @@ spring:
       server:
         git:
           uri: https://github.com/wenweihu86/spring-cloud-config-repo
-          searchPaths: example
+#          searchPaths: example
           force-pull: true
 
 eureka:

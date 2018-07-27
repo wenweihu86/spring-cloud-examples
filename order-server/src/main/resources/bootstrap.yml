@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: config-client
+    name: order-server
   cloud:
     stream:
       kafka:
