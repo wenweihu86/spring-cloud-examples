@@ -1,0 +1,29 @@
+server:
+  port: 8871
+
+spring:
+  application:
+    name: inventory-server
+  cloud:
+    stream:
+      kafka:
+        binder:
+          zk-nodes: localhost:2181
+          brokers: localhost:9092
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-server
+      label: master
+      profile: dev
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8889/eureka/,http://127.0.0.1:8890/eureka/
+    fetch-registry: true
+    registry-fetch-interval-seconds: 30
+
+management:
+  security:
+    enabled: false
