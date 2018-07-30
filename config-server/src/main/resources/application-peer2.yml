@@ -5,11 +5,11 @@ spring:
   application:
     name: config-server
   cloud:
-    stream:
-      kafka:
-        binder:
-          zk-nodes: localhost:2181
-          brokers: localhost:9092
+#    stream:
+#      kafka:
+#        binder:
+#          zk-nodes: localhost:2181
+#          brokers: localhost:9092
     config:
       label: master
       server:

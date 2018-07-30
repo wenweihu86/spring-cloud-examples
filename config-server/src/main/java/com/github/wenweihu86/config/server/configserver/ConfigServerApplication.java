@@ -9,7 +9,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @SpringBootApplication
 @EnableConfigServer
 @EnableDiscoveryClient
-@RefreshScope
+//@RefreshScope
 public class ConfigServerApplication {
 
 	public static void main(String[] args) {

@@ -8,15 +8,15 @@ spring:
 eureka:
   instance:
     # 使用IP注册
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    hostname: ${spring.cloud.client.ip-address}
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: eureka-peer1
 #    # 心跳间隔
 #    lease-renewal-interval-in-seconds: 3
 #    # 服务失效时间： 如果多久没有收到请求，则可以删除服务
 #    lease-expiration-duration-in-seconds: 3
   client:
-    # 不注册自身到eureka服务器
+    # 注册自身到eureka服务器
     register-with-eureka: true
     # 表示是否从eureka服务器获取注册信息
     fetch-registry: true
@@ -24,10 +24,10 @@ eureka:
 #    eureka-service-url-poll-interval-seconds: 60
     service-url:
     # 如果不是单机部署，这里要配置其他eureka-server的ip
-      defaultZone: http://${spring.cloud.client.ip-address}:8890/eureka/
+      defaultZone: http://eureka-peer2:8890/eureka/
   server:
     # 关闭自我保护模式
-    enable-self-preservation: false
+    enable-self-preservation: true
     # 设置清理间隔,单位为毫秒,默认为0
     eviction-interval-timer-in-ms: 3000
 #    # 设置如果Eureka Server启动时无法从临近Eureka Server节点获取注册信息，它多久不对外提供注册服务
