@@ -34,7 +34,7 @@ eureka:
     healthcheck:
       enabled: true
     service-url:
-      defaultZone: http://127.0.0.1:8889/eureka/,http://127.0.0.1:8890/eureka/
+      defaultZone: http://${spring.cloud.client.ip-address}:8889/eureka/,http://127.0.0.1:8890/eureka/
 
 management:
   security:
