@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mvn clean package -DskipTests
+mvn clean install -DskipTests
 
 nohup java -Dspring.profiles.active=peer1 -jar eureka-server/target/eureka-server.jar &
 nohup java -Dspring.profiles.active=peer2 -jar eureka-server/target/eureka-server.jar &
